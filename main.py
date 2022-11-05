@@ -1,4 +1,5 @@
 import os
+from utils import logger
 
 all_data = {}
 sort_dict = {}
@@ -17,7 +18,8 @@ def file_worker(file_path, mode, data):
         for val in values:
             file.write(f'{val}\n')
 
-
+# если параметр не указан, создается в директории по умолчанию
+@logger()
 def sorted_dict(dict):
     sorted_keys = sorted(dict, key=dict.get)
     for key in sorted_keys:
